@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+<<<<<<< HEAD
     <link href="/static/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/static/jquery/jquery.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -58,5 +59,25 @@
         </div>
     </div>
 </div>
+=======
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/bootstrap.min.css" />
+</head>
+<body style="margin: 100px">
+    <div>
+        {% if request.session.username %}
+            <p style="font-size: 20px">
+                欢迎用户：{{ request.session.username }}
+                &nbsp;&nbsp;&nbsp;
+                <a href="logout" class="btn btn-danger" >注销</a>
+            </p>
+        {% else %}
+            <p style="font-size: 20px">您还没有登录哦，请赶紧
+                <a href="/accounts/register" class="btn btn-primary">注册</a>
+                或者
+                <a href="/accounts/login" class="btn btn-success">登录</a>吧！
+            </p>
+        {% endif %}
+    </div>
+>>>>>>> 4322f077f0146baa4c3cdd2fc7fc6bf074fa14d6
 </body>
 </html>

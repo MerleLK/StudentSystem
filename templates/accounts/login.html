@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- 新 Bootstrap 核心 CSS  文件 -->
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="/static/jquery/jquery.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/static/bootstrap/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row clearfix">
+
+        {#页面头#}
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1"><span
+                            class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <a class="navbar-brand" href="#">Merle_LK</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a class="btn-default" href="/accounts">首页</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="register">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">注册
+                                <strong class="caret"></strong></a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="btn-default" href="/accounts/register">用户注册</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        {#主页面#}
+        <h3>欢迎登陆</h3>
+        <div class="row clearfix">
+            <div class="col-md-4 column">
+            </div>
+            <div class="col-md-4 column">
+                <form action="login" role="form" method="post" name="form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">*用户名</label>
+                        <input type="text" class="form-control" name="username"
+                               id="exampleInputEmail1" placeholder="请输入用户名" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">*密码</label>
+                        <input type="password" name="password" class="form-control"
+                               id="exampleInputPassword1" placeholder="请输入密码" required/>
+                    </div>
+                    {#            <div class="form-group">#}
+                    {#                <label for="exampleInputPassword1">*验证码</label><input type="text" name="codes" size="6"#}
+                    {#                                                                      placeholder="请输入验证码">#}
+                    {#                <img alt="code..." name="randImage" id="randImage" src="image.jsp" width="60" height="20" border="1"#}
+                    {#                     align="absmiddle">#}
+                    {#                <a href="javascript:loadimage();"><font class=pt95>刷新</font></a>#}
+                    {#            </div>#}
+                    <button type="submit" class="btn btn-default">登陆</button>
+                </form>
+            </div>
+            <div class="col-md-4 column">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

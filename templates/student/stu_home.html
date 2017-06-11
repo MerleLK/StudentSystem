@@ -2,9 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>StuHome</title>
+    <link href="/static/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/static/jquery/jquery.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script type="text/javascript" src="/static/bootstrap/bootstrap.min.js"></script>
 </head>
 <body>
+    <div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span><span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Merle_LK</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#">学生首页</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="personal_info_manage">
+                            <a class="btn-default" href="/student/personal_info_manage">个人信息管理</a>
+                        </li>
 
+                        <li class="active">
+                            <a class="btn-default" href="/accounts/login">登录</a>
+                        </li>
+
+
+                        <li class="register">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">注册<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="btn-default" href="/accounts/register">用户注册</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+            <div class="jumbotron">
+                <h2>
+                    欢迎来到学生首页
+                </h2>
+                <p>
+                    学生的功能如下：
+                    <br>
+                    1.个人信息管理
+                    2.选课
+                    3.查看成绩
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-large" href="#">了解更多</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

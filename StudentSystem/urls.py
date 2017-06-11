@@ -21,5 +21,6 @@ from accounts.views import index
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
-    url(r'^accounts/', include('accounts.urls'))
+    url(r'^accounts/', include('accounts.urls')),
+    url(r'^student/', include('student.urls'))
 ]

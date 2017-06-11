@@ -1,21 +1,23 @@
-{% extends 'student/stu_base.html' %}
+{% extends 'teacher/tea_base.html' %}
+
+{% block title %}
+    <title>Teacher Home</title>
+{% endblock %}
 
 {% block content %}
-
     <div class="jumbotron">
                 <h2>
-                    欢迎来到学生首页
+                    欢迎来到教师首页
                 </h2>
                 <p>
-                    学生的功能如下：
+                    教师的功能如下：
                     <br>
                     1.个人信息管理
-                    2.选课
-                    3.查看成绩
+                    2.课程管理
+                    3.成绩管理
                 </p>
                 <p>
                     <a class="btn btn-primary btn-large" href="#">了解更多</a>
                 </p>
             </div>
-
 {% endblock %}

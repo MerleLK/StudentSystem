@@ -1,7 +1,10 @@
-{% extends "student/stu_base.html" %}
+{% extends 'teacher/tea_base.html' %}
+
+{% block title %}
+    <title>Teacher Info</title>
+{% endblock %}
 
 {% block content %}
-
     {#展示界面#}
     <h3>您的信息如下：</h3>
     <div class="row clearfix">
@@ -17,39 +20,30 @@
         </div>
 
         <div class="col-md-4 column">
-            <form action="personal_info_manage" role="form" method="post" name="form">
+            <form action="tea_personal_info" role="form" method="post" name="form">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="name">*姓名</label>
                     <input type="text" class="form-control" name="name"
-                           id="name" value="{{ student.name }}" required/>
+                           id="name" value="{{ teacher.name }}" required/>
                 </div>
                 <div class="form-group">
                     <label for="age">*年龄</label>
                     <input type="text" class="form-control" name="age"
-                           id="age" value="{{ student.age }}" required/>
+                           id="age" value="{{ teacher.age }}" required/>
                 </div>
                 <div class="form-group">
                     <label for="sex">*性别</label>
                     <input type="text" class="form-control" name="sex"
-                           id="sex" value="{{ student.sex }}" required/>
+                           id="sex" value="{{ teacher.sex }}" required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="grade">*年级</label>
-                    <input type="text" class="form-control" name="grade"
-                           id="grade" value="{{ student.grade }}" required/>
+                    <label for="college">*所属学院</label>
+                    <input type="text" class="form-control" name="college"
+                           id="college" value="{{ teacher.college }}" required/>
                 </div>
-                <div class="form-group">
-                    <label for="discipline">*专业</label>
-                    <input type="text" class="form-control" name="discipline"
-                           id="discipline" value="{{ student.discipline }}" required/>
-                </div>
-                <div class="form-group">
-                    <label for="class_code">*班级</label>
-                    <input type="text" class="form-control" name="class_code"
-                           id="class_code" value="{{ student.class_code }}" required/>
-                </div>
+
                 <button type="submit" class="btn btn-default">提交修改</button>
 
             </form>

@@ -30,13 +30,14 @@ def register_view(request):
             password = add_password(request.POST['password'])
             email = request.POST['email']
             phone = request.POST['phone']
+            role_id = request.POST['role_id']
             user = User.objects.create(
                 username=username,
                 password=password,
                 email=email,
                 phone=phone,
                 eno_id=emp_no,
-                role_id=Role.objects.get(id=2),
+                role_id=Role.objects.get(id=role_id),
             )
 
             request.session["username"] = user.username
@@ -51,6 +52,7 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = add_password(request.POST['password'])
+        # print(password, "登录的密码")
         user_obj = User.objects.filter(username=username, password=password)
 
         if len(user_obj) == 1:
@@ -58,13 +60,12 @@ def login_view(request):
             request.session['username'] = user.username
 
             if user.role_id.role_name == 'teacher':
-                return redirect('/accounts')
+                return redirect('/teacher')
             elif user.role_id.role_name == 'student':
                 return redirect('/student')
             else:
                 return redirect('/accounts')
         else:
-            # return HttpResponse('<h1>用户名不存在，或者密码错误！</h1>')
             flash(request, 'error', u'用户名不存在或者密码错误')
             return redirect('/accounts')
     else:

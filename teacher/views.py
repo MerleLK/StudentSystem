@@ -157,7 +157,7 @@ def tea_alter_course(request, course_id):
     """
     if request.method == "POST":
         try:
-            course_id = request.POST['course_id']
+            course_id = request.POST['course_id']  # 此句应该可以注释掉
             course = CourseInfo.objects.get(course_id=course_id)
             if course:
                 course_name = request.POST['course_name']
@@ -179,12 +179,57 @@ def tea_alter_course(request, course_id):
             return render(request, 'teacher/tea_alter_course.html', {'course': course})
         except ObjectDoesNotExist:
             return 404
-    return
+    return 404
 
 
 # 教师通过名称查询到课程
 def tea_find_course_by_name(request):
-    pass
+    """
+    检索到所有选择该课程的学生选课记录返回
+    :param request:
+    :return:
+    """
+
+    if request.method == "POST":
+        try:
+            course_name = request.POST['course_name']
+            course = CourseInfo.objects.get(course_name=course_name)
+            course_id = course.course_id
+            electives = Elective.objects.filter(course_id=course_id)
+            print(electives)
+
+            return render_to_response('teacher/tea_show_course_student.html', {"electives": electives})
+        except ObjectDoesNotExist:
+            flash(request, 'error', u'查找失败,请输入正确的名称！')
+
+    return render(request, "teacher/tea_find_course_by_name.html")
+
+
+# 教师通过选课表ID修改学生成绩
+def tea_score_alter(request, elective_id):
+    """
+
+    :param request:
+    :param elective_id: 选课表的id
+    :return:
+    """
+    if request.method == "POST":
+        try:
+            # elective_id = request.POST['id']
+            elective = Elective.objects.get(id=int(elective_id))
+            if elective:
+                score = request.POST['score']
+                elective.score = score
+                elective.save()
+                return redirect('/teacher/tea_find_course_by_name')  # 需要修改一下 加一个成绩管理的总页面
+        except ObjectDoesNotExist:
+            pass
+    elif request.method == "GET":
+        try:
+            elective = Elective.objects.get(id=elective_id)
+            return render(request, 'teacher/tea_alter_score.html', {'elective': elective})
+        except ObjectDoesNotExist:
+            return 404
 
 
 def hash_password(password):

@@ -23,4 +23,4 @@ class Elective(models.Model):
 
     course_id = models.ForeignKey(CourseInfo, related_name="course_elective")
     student_id = models.ForeignKey(StudentMessage, related_name="elective_student")
-    score = models.FloatField()
+    score = models.FloatField(default=60)

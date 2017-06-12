@@ -1,0 +1,73 @@
+{% extends 'teacher/tea_base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <h3>当前课程选课信息:</h3>
+    <div class="row clearfix">
+        {#展示出提示消息#}
+        <div class="col-md-4 column">
+            {% if messages %}
+                <script>
+                    {% for msg in messages %}
+                        alert('{{ msg.message }}');
+                    {% endfor %}
+                </script>
+            {% endif %}
+        </div>
+    </div>
+    <!-- 展示出所有选择该课程的学生的信息 todo-->
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>课程名称</th>
+                    <th>学生名</th>
+                    <th>分数</th>
+                    <th>动作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if electives %}
+                    {% for elective in electives %}
+                        <tr>
+                            <th>{{ elective.course_id.course_name }}</th>
+                            <th>{{ elective.student_id.name }}</th>
+                            <th>{{ elective.score }}</th>
+                            <th><a href="/teacher/tea_score_alter/{{ elective.id }}">修改成绩</a></th>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{#    <div class="col-md-4 column">#}
+{#        {% if electives %}#}
+{#            {% for elective in electives %}#}
+{#                <div class="form-group">#}
+{#                    <label for="course_name">*课程名</label>#}
+{#                    <input type="text" class="form-control" name="course_name"#}
+{#                           id="course_name" value="{{ elective.course_id.course_name }}" required/>#}
+{#                </div>#}
+{#                <div class="form-group">#}
+{#                    <label for="stu_name">*学生姓名</label>#}
+{#                    <input type="text" class="form-control" name="stu_name"#}
+{#                           id="stu_name" value="{{ elective.student_id.name }}" required/>#}
+{#                </div>#}
+{#                <div class="form-group">#}
+{#                    <label for="score">*分数</label>#}
+{#                    <input type="text" class="form-control" name="score"#}
+{#                           id="score" value="{{ elective.score }}" required/>#}
+{#                </div>#}
+{#                <div class="form-group">#}
+{#                    <a href="">跳转到该学生的成绩修改</a>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
+{#    </div>#}
+{% endblock %}

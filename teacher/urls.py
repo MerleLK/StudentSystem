@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import tea_home, tea_personal_info, tea_update_password, tea_add_course, tea_find_course, tea_del_course
-from .views import tea_alter_course
+from .views import tea_alter_course, tea_find_course_by_name, tea_score_alter
 
 
 urlpatterns = [
@@ -12,4 +12,8 @@ urlpatterns = [
     url(r'^tea_del_course/(.+)/$', tea_del_course),
     url(r'^tea_alter_course/(.+)/$', tea_alter_course),
     url(r'^tea_alter_course/(.+)', tea_alter_course),
+    url(r'^tea_course_by_name', tea_find_course_by_name),
+    url(r'^tea_score_alter/(.+)/$', tea_score_alter),
+    url(r'^tea_score_alter/(.+)', tea_score_alter),
+    # url(r'',)
 ]

@@ -5,19 +5,29 @@
 {% endblock %}
 
 {% block content %}
+
+    {#展示出提示消息#}
+    {% if messages %}
+        <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+        </script>
+    {% endif %}
+
     <div class="jumbotron">
-                <h2>
-                    欢迎来到教师首页
-                </h2>
-                <p>
-                    教师的功能如下：
-                    <br>
-                    1.个人信息管理
-                    2.课程管理
-                    3.成绩管理
-                </p>
-                <p>
-                    <a class="btn btn-primary btn-large" href="#">了解更多</a>
-                </p>
-            </div>
+        <h2>
+            欢迎来到教师首页
+        </h2>
+        <p>
+            教师的功能如下：
+            <br>
+            1.个人信息管理
+            2.课程管理
+            3.成绩管理
+        </p>
+        <p>
+            <a class="btn btn-primary btn-large" href="#">了解更多</a>
+        </p>
+    </div>
 {% endblock %}

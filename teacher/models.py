@@ -1,5 +1,4 @@
 from django.db import models
-from django_enumfield import enum
 
 # Create your models here.
 
@@ -21,5 +20,9 @@ class TeacherMessage(models.Model):
 # 教师发布课程表
 class CourseInfo(models.Model):
 
-    course_id = models.BigIntegerField()
+    course_id = models.BigIntegerField(primary_key=True)
+    course_name = models.CharField(max_length=100, null=False)
     teacher_id = models.ForeignKey(TeacherMessage, related_name="course_teacher")
+    description = models.CharField(max_length=200)
+    for_grade = models.CharField(max_length=20, null=False)
+

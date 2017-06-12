@@ -1,0 +1,45 @@
+{% extends 'teacher/tea_base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <h3>请输入查找条件:</h3>
+    <div class="row clearfix">
+        {#展示出提示消息#}
+        <div class="col-md-4 column">
+            {% if messages %}
+                <script>
+                    {% for msg in messages %}
+                        alert('{{ msg.message }}');
+                    {% endfor %}
+                </script>
+            {% endif %}
+        </div>
+    </div>
+    <!-- 展示出所有选择该课程的学生的信息 todo-->
+    <div class="col-md-4 column">
+        {% if cource_student %}
+            {% for student in course_student %}
+                <div class="form-group">
+                    <label for="course_name">*课程名</label>
+                    <input type="text" class="form-control" name="course_name"
+                           id="course_name" value="课程名" required/>
+                </div>
+                <div class="form-group">
+                    <label for="stu_name">*学生姓名</label>
+                    <input type="text" class="form-control" name="stu_name"
+                           id="stu_name" value="学生姓名" required/>
+                </div>
+                <div class="form-group">
+                    <label for="score">*分数</label>
+                    <input type="text" class="form-control" name="score"
+                           id="score" value="分数" required/>
+                </div>
+                <div class="form-group">
+                    <a href="">跳转到该学生的成绩修改</a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

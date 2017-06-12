@@ -1,0 +1,52 @@
+{% extends 'teacher/tea_base.html' %}
+
+{% block title %}
+    <title>Teacher Show Course</title>
+{% endblock %}
+
+{% block content %}
+    <h3>您当前发布的所有课程如下:</h3>
+    <div class="row clearfix">
+        {#展示出提示消息#}
+        <div class="col-md-4 column">
+            {% if messages %}
+                <script>
+                    {% for msg in messages %}
+                        alert('{{ msg.message }}');
+                    {% endfor %}
+                </script>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>课程号</th>
+                    <th>课程名称</th>
+                    <th>课程描述</th>
+                    <th>课程对应年级</th>
+                    <th>动作</th>
+                    <th>动作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if courses %}
+                    {% for course in courses %}
+                        <tr>
+                            <th>{{ course.course_id }}</th>
+                            <th>{{ course.course_name }}</th>
+                            <th>{{ course.description }}</th>
+                            <th>{{ course.for_grade }}</th>
+                            <th><a href="/teacher/tea_del_course/{{ course.course_id }}">删除该课程</a></th>
+                            <th><a href="/teacher/tea_alter_course/{{ course.course_id }}">修改该课程</a></th>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'student/stu_base.html' %}
+
+{% block content %}
+
+    <h3>您当前所有选择课程如下:</h3>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>课程名称</th>
+                    <th>您的名字</th>
+                    <th>动作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if electives %}
+                    {% for elective in electives %}
+                        <tr>
+                            <th>{{ elective.course_id.course_name }}</th>
+                            <th>{{ elective.student_id.name }}</th>
+                            <th><a href="/student/stu_del_course/{{ elective.course_id_id }}">退选</a></th>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

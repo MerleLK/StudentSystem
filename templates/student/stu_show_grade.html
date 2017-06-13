@@ -1,0 +1,31 @@
+{% extends 'student/stu_base.html' %}
+
+{% block content %}
+
+    <h3>您当前所有课程的成绩如下:</h3>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>课程名称</th>
+                    <th>您的名字</th>
+                    <th>成绩</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if electives %}
+                    {% for elective in electives %}
+                        <tr>
+                            <th>{{ elective.course_id.course_name }}</th>
+                            <th>{{ elective.student_id.name }}</th>
+                            <th>{{ elective.score }}</th>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

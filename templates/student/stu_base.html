@@ -28,7 +28,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="personal_info_manage">
+                        <li class="active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人信息<strong class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -41,11 +41,30 @@
                         </li>
 
                         <li class="active">
-                            <a class="btn-default" href="#">成绩查询</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">成绩查询
+                                <strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="btn-default" href="/student/get_all_course">所有记录</a>
+                                </li>
+                                <li>
+                                    <a class="btn-default" href="/student/stu_find_course_by_name">查询</a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="active">
-                            <a class="btn-default" href="#">选课</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">选课
+                                <strong class="caret"></strong></a>
+{#                            <a class="btn-default" href="#">选课</a>#}
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="btn-default" href="/student/get_all_chose_course">当前选择的课程</a>
+                                </li>
+                                <li>
+                                    <a class="btn-default" href="/student/stu_chose_new_course">选择新课程</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

@@ -39,9 +39,8 @@ def register_view(request):
                 eno_id=emp_no,
                 role_id=Role.objects.get(id=role_id),
             )
-
-            request.session["username"] = user.username
-            return redirect('/')
+            flash(request, 'success', u'注册成功！请您登陆')
+            return render(request, 'accounts/login.html', locals())
 
     return render(request, 'accounts/register.html', locals())
 
@@ -67,7 +66,7 @@ def login_view(request):
                 return redirect('/accounts')
         else:
             flash(request, 'error', u'用户名不存在或者密码错误')
-            return redirect('/accounts')
+            return render(request, 'accounts/login.html', locals())
     else:
         return render(request, 'accounts/login.html', locals())
 

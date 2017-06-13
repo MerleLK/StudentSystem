@@ -1,0 +1,33 @@
+{% extends 'student/stu_base.html' %}
+
+{% block content %}
+
+    <h3>当前所有已经发布的课程如下:</h3>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>课程名称</th>
+                    <th>教师</th>
+                    <th>课程描述</th>
+                    <th>动作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if courses %}
+                    {% for course in courses %}
+                        <tr>
+                            <th>{{ course.course_name }}</th>
+                            <th>{{ course.teacher_id.name }}</th>
+                            <th>{{ course.description }}</th>
+                            <th><a href="/student/stu_do_chose/{{ course.course_id }}">选择该课程</a></th>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <h3>您的信息如下：</h3>
+    <h3>请选择要导入的教师信息文件:</h3>
     <div class="row clearfix">
         {#展示出提示消息#}
         <div class="col-md-4 column">
@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="file">*请选择文件</label>
                     <input type="file" class="form-control" name="file"
-                           id="file" required/>
+                           id="file" placeholder="请选择文件(.xls,.xlsx)" required/>
                 </div>
                 <button type="submit" class="btn-default">提交</button>
             </form>
@@ -34,7 +34,6 @@
         var obj = document.getElementById('form');
         var check_file_name = function () {
             var str = document.getElementById('file').value;
-            alert(str);
             var pos = str.lastIndexOf(".");
             var last_name = str.substring(pos, str.length);  //此处文件后缀名也可用数组方式获得str.split(".")
             if (last_name.toLowerCase() != ".xls" && last_name.toLowerCase() != ".xlsx") {

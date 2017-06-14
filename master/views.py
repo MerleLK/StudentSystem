@@ -82,8 +82,10 @@ def master_teacher_import(request):
         fs = FileSystemStorage()
         filename = fs.save(my_file.name, my_file)
         file_url = MEDIA_ROOT + "\\" + filename
-        teacher_file_import(file_url)
-        flash(request, 'success', u'文件上传成功！')
+        if teacher_file_import(file_url):
+            flash(request, 'success', u'教师信息导入成功！')
+        else:
+            flash(request, 'error', u'教师信息导入失败！请重新导入')
         os.remove(file_url)
     return render(request, 'master/master_teacher_import.html')
 
@@ -95,8 +97,10 @@ def master_student_import(request):
         fs = FileSystemStorage()
         filename = fs.save(my_file.name, my_file)
         file_url = MEDIA_ROOT + "\\" + filename
-        student_file_import(file_url)
-        flash(request, 'success', u'文件上传成功！')
+        if student_file_import(file_url):
+            flash(request, 'success', u'学生信息导入成功！')
+        else:
+            flash(request, 'error', u'学生信息导入失败！请重新导入')
         os.remove(file_url)
     return render(request, 'master/master_student_import.html')
 

@@ -63,10 +63,13 @@
                                 <li>
                                     <a class="btn-default" href="/teacher/tea_course_by_name">成绩录入</a>
                                 </li>
-                                <li>
-                                    <a class="btn-default" href="/teacher/#">成绩修改</a>
-                                </li>
                             </ul>
+                        </li>
+
+                         <li>
+                            <!-- 放登陆信息 -->
+                            欢迎：{{ request.session.username }}
+                            <button onclick="{location.href='/accounts/login_out'}" class="btn btn-info">登出</button>
                         </li>
                     </ul>
                 </div>

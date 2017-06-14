@@ -27,22 +27,15 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="register">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">登陆
-                                <strong class="caret"></strong></a>
-
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="btn-default" href="/accounts/login">用户登陆</a>
-                                </li>
-                            </ul>
+                        <li class="active">
+                            <a class="btn-default" href="/accounts/login">用户登陆</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
 
-{#        主页面  #}
+        {#        主页面  #}
         <h3>欢迎来到注册页面</h3>
         <div class="row clearfix">
             {#展示出提示消息#}
@@ -57,22 +50,22 @@
             </div>
 
             <div class="col-md-4 column">
-                <form action="register" role="form" method="post" name="form">
+                <form action="register" role="form" method="post" name="form" id="form">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="exampleInputEmail1">*用户名</label>
                         <input type="text" class="form-control" name="username"
-                               id="username" placeholder="请输入注册的用户名" required />
+                               id="username" placeholder="请输入注册的用户名" required/>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">*密码</label>
                         <input type="password" name="password" class="form-control"
-                               id="password" placeholder="请输入密码" required />
+                               id="password" placeholder="请输入密码" required/>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">*重复密码</label>
                         <input type="password" name="password_again" class="form-control"
-                               id="password_again" placeholder="请再次输入密码" required />
+                               id="password_again" placeholder="请再次输入密码" required/>
                     </div>
 
                     <div class="form-group">
@@ -84,7 +77,7 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">*邮箱</label>
                         <input type="email" name="email" class="form-control"
-                               id="email" placeholder="请输入邮箱地址" required />
+                               id="email" placeholder="请输入邮箱地址" required/>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">手机号</label>
@@ -93,6 +86,7 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="role_id">角色</label>
                         <select class="form-control" id="role_id" name="role_id">
                             <option value="1">教师</option>
                             <option value="2">学生</option>
@@ -105,5 +99,26 @@
         </div>
     </div>
 </div>
+<!-- 判断两次密码输入的一致性 -->
+<script>
+    var obj = document.getElementById('form');
+    var check_pasword = function () {
+        var password = document.getElementById('password').value;
+        var password_again = document.getElementById('password_again').value;
+
+        if (password != password_again) {
+            alert("您两次密码输入不一致,请重新输入!");
+            document.getElementById('password').value="";
+            document.getElementById('password_again').value="";
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    obj.onsubmit = function () {
+        return check_pasword();
+    }
+</script>
 </body>
 </html>

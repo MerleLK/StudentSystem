@@ -62,6 +62,8 @@ def login_view(request):
                 return redirect('/teacher')
             elif user.role_id.role_name == 'student':
                 return redirect('/student')
+            elif user.role_id.role_name == 'admin':
+                return redirect('/master')
             else:
                 return redirect('/accounts')
         else:

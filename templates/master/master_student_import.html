@@ -1,0 +1,52 @@
+{% extends 'master/master_base.html' %}
+
+{% block title %}
+    <title>Import Teacher</title>
+{% endblock %}
+
+{% block content %}
+    <h3>您的信息如下：</h3>
+    <div class="row clearfix">
+        {#展示出提示消息#}
+        <div class="col-md-4 column">
+            {% if messages %}
+                <script>
+                    {% for msg in messages %}
+                        alert('{{ msg.message }}');
+                    {% endfor %}
+                </script>
+            {% endif %}
+        </div>
+        <div class="col-md-4 column">
+            <form action="/master/master_student_import" role="form" method="post" name="form" id="form"
+                  enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="file">*请选择文件</label>
+                    <input type="file" class="form-control" name="file"
+                           id="file" required/>
+                </div>
+                <button type="submit" class="btn-default">提交</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        var obj = document.getElementById('form');
+        var check_file_name = function () {
+            var str = document.getElementById('file').value;
+            alert(str);
+            var pos = str.lastIndexOf(".");
+            var last_name = str.substring(pos, str.length);  //此处文件后缀名也可用数组方式获得str.split(".")
+            if (last_name.toLowerCase() != ".xls" && last_name.toLowerCase() != ".xlsx") {
+                alert("您上传的文件类型为" + last_name + "，文件必须为.xls,.xlsx类型");
+                return false;
+            }
+            else {
+                return true;
+            }
+        };
+        obj.onsubmit = function () {
+            return check_file_name();
+        }
+    </script>
+{% endblock %}

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'student',
     'teacher',
+    'master',
 ]
 
 # # 替换自定义的用户认证
@@ -137,3 +138,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+# 文件上传的存储路径
+MEDIA_URL = '/upload/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')

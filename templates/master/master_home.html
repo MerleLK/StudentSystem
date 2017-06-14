@@ -1,0 +1,35 @@
+{% extends 'master/master_base.html' %}
+
+{% block title %}
+    <title>Master Home</title>
+{% endblock %}
+
+{% block content %}
+    {#展示出提示消息#}
+    {% if messages %}
+        <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+        </script>
+    {% endif %}
+
+    <div class="jumbotron">
+                <h2>
+                    欢迎来到管理员首页
+                </h2>
+                <p>
+                    管理员的功能如下：
+                    <br>
+                    1.添加管理员
+                    2.修改密码
+                    3.导入教师信息
+                    4.导入学生信息
+                    5.后台数据管理
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-large" href="#">了解更多</a>
+                </p>
+            </div>
+
+{% endblock %}

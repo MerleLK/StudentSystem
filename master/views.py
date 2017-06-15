@@ -130,7 +130,8 @@ def teacher_file_import(filename):
             else:
                 pass
         return True
-    except:
+    except Exception as e:
+        print(e)
         return False
 
 
@@ -155,5 +156,6 @@ def student_file_import(filename):
             else:
                 pass
         return True
-    except:
+    except Exception as e:
+        print(e)
         return False

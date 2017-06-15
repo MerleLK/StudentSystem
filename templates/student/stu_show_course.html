@@ -1,6 +1,20 @@
 {% extends 'student/stu_base.html' %}
 
+{% block title %}
+    <title>Student Show Course</title>
+{% endblock %}
+
 {% block content %}
+    {#展示出提示消息#}
+    {% if messages %}
+        <div class="col-md-4 column">
+            <script>
+                {% for msg in messages %}
+                    alert('{{ msg.message }}');
+                {% endfor %}
+            </script>
+        </div>
+    {% endif %}
 
     <h3>您当前所有选择课程如下:</h3>
     <div class="row clearfix">

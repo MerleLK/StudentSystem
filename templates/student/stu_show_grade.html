@@ -1,7 +1,20 @@
 {% extends 'student/stu_base.html' %}
 
-{% block content %}
+{% block title %}
+    <title>Student Show Grade</title>
+{% endblock %}
 
+{% block content %}
+    {#展示出提示消息#}
+    {% if messages %}
+        <div class="col-md-4 column">
+            <script>
+                {% for msg in messages %}
+                    alert('{{ msg.message }}');
+                {% endfor %}
+            </script>
+        </div>
+    {% endif %}
     <h3>您当前所有课程的成绩如下:</h3>
     <div class="row clearfix">
         <div class="col-md-12 column">

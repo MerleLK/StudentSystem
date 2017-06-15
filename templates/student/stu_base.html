@@ -2,19 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>StuHome</title>
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
     <link href="/static/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/static/jquery/jquery.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script type="text/javascript" src="/static/bootstrap/bootstrap.min.js"></script>
+    {% block title %}
+    {% endblock %}
 </head>
 <body>
-    <div class="container">
+<div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
             <nav class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span><span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -29,7 +32,8 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人信息<strong class="caret"></strong></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人信息<strong
+                                    class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a class="btn-default" href="/student/personal_info_manage">个人信息管理</a>
@@ -56,7 +60,7 @@
                         <li class="active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">选课
                                 <strong class="caret"></strong></a>
-{#                            <a class="btn-default" href="#">选课</a>#}
+                            {#                            <a class="btn-default" href="#">选课</a>#}
                             <ul class="dropdown-menu">
                                 <li>
                                     <a class="btn-default" href="/student/get_all_chose_course">当前选择的课程</a>

@@ -58,7 +58,6 @@ def personal_info_manage(request):
 def update_password(request):
     try:
         username = request.session["username"]
-        print(username)
     except KeyError:
         return 404
 
@@ -87,7 +86,6 @@ def get_all_course(request):
     if request.method == "GET":
         try:
             username = request.session["username"]
-            print(username)
         except KeyError:
             return 404
 
@@ -131,7 +129,6 @@ def get_all_chose_course(request):
     if request.method == "GET":
         try:
             username = request.session["username"]
-            print(username)
         except KeyError:
             return 404
 
@@ -175,7 +172,6 @@ def stu_do_chose(request, course_id):
     if request.method == "GET":
         try:
             username = request.session["username"]
-            print(username)
         except KeyError:
             return 404
 
@@ -208,7 +204,6 @@ def stu_del_course(request, course_id):
     """
     try:
         username = request.session["username"]
-        print(username)
     except KeyError:
         return 404
 

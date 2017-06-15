@@ -108,11 +108,12 @@ def stu_find_course_by_name(request):
 
     if request.method == "POST":
         try:
+            username = request.session['username']
+            user_id = User.objects.get(username=username).eno_id
             course_name = request.POST['course_name']
             course_id = CourseInfo.objects.get(course_name=course_name)
-
             try:
-                elective = Elective.objects.get(course_id_id=course_id)
+                elective = Elective.objects.get(course_id_id=course_id, student_id_id=user_id)
                 return render(request, 'student/stu_show_single_grade.html', {'elective': elective})
             except ObjectDoesNotExist:
                 flash(request, 'error', u'您没有选择该课程！')

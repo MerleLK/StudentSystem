@@ -123,6 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'zh_Hans'
+# LANGUAGE_CODE = 'zh_CN'  # if on Unix or Linux
 
 TIME_ZONE = 'UTC'
 
